@@ -54,7 +54,7 @@ st.markdown(
 # ─── LOAD DATA ──────────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    url = "https://raw.githubusercontent.com/oussama-1997-hub/MedApp25/main/BD%20sans%20encod%20stand.xlsx"
+    url = " https://raw.githubusercontent.com/oussama-1997-hub/Test253/blob/main/BD%20sans%20encod%20stand.xlsx"
     return pd.read_excel(url, engine="openpyxl")
 
 df = load_data()
@@ -178,7 +178,7 @@ with st.form("patient_form"):
     )[1]
     
      # ─── OPTIONAL SECTIONS ──────────────────────────────────────────────────────
-    st.markdown("### 🧩 Optional Inputs (for more precision)")
+    st.markdown("### 🧩 Optional Inputs ")
 
     # Track which keys already exist
     existing = set(key_inputs.keys())
@@ -231,12 +231,16 @@ with st.form("patient_form"):
                 options,
                 index=0
             )
-
+            
+# ─── Button Submit ─────────────────────────────────────────────────────────────────
+    
     submitted = st.form_submit_button("🔍 Predict")
 # ─── PREDICTION ─────────────────────────────────────────────────────────────────
 if submitted:
     # Start from the key_inputs dict (which already has 'scholarship level ')
     inp = dict(key_inputs)
+
+    # ───METTRE FEATURES QUE J AI CHANGE LEUS NOMS DS INTERFACE EX MALE 0 ET FEMALE 1 ─────────────────────────────────────────────────────────────────
 
     # Add demographic & socioeconomic flags
     inp['Gender ']                   = gender_map[gender]
